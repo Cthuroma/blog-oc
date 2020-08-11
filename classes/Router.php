@@ -2,58 +2,45 @@
 
 class Router
 {
-    private $request;
+    private $path;
 
     private $routes = [
         "home"             => ["controller" => 'MainController', "method" => 'showHome'],
-        "post"          => ["controller" => 'MainController', "method" => 'showPost'],
-        "post_list"          => ["controller" => 'MainController', "method" => 'showPostList'],
+        "post"             => ["controller" => 'MainController', "method" => 'showPost'],
+        "post-list"        => ["controller" => 'MainController', "method" => 'showPostList'],
     ];
 
-    public function __construct($request)
+    public function __construct($path)
     {
-        $this->request = $request;
+        $this->path = $path;
     }
 
     public function getRoute()
     {
-        $elements = explode('/', $this->request);
-        return $elements[0];
+        $elements = explode('/', $this->path);
+        return ($elements[1] !== '') ? ($elements[1]) : ('post-list');
     }
 
-    public function getParams()
+    public function getArgs()
     {
-        $params = array();
-
-        $elements = explode('/', $this->request);
-        unset($elements[0]);
-
-        for ($i = 1; $i < count($elements); $i++) {
-            $params[$elements[$i]] = $elements[$i + 1];
-            $i++;
-        }
-
-        if ($_POST) {
-            foreach ($_POST as $key => $val) {
-                $params[$key] = $val;
-            }
-        }
-
-
-        return $params;
+        $elements = explode('/', $this->path);
+        array_splice($elements, 0, 2);
+        return $elements;
     }
 
     public function renderController()
     {
         $route = $this->getRoute();
-        $params = $this->getParams();
+        $urlArgs = $this->getArgs();
+        $request = new Request;
         if (key_exists($route, $this->routes)) {
             $controller = $this->routes[$route]['controller'];
             $method = $this->routes[$route]['method'];
             $currentController = new $controller();
-            $currentController->$method($params);
+            $currentController->$method($request, $urlArgs);
         } else {
-            echo '404';
+            $view = new View('404');
+            $view->render();
         }
     }
 }

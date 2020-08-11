@@ -2,10 +2,12 @@
 
 include_once('config.php');
 
+
+
 Autoload::start();
 
-$request = isset($_GET['r'])?$_GET['r']:'post_list';
+$path = filter_input(INPUT_SERVER, 'REDIRECT_URL');
 
-$router = new Router($request);
+$router = new Router($path);
 $router->renderController();
 

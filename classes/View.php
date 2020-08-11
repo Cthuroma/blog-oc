@@ -11,9 +11,9 @@ class View
         $this->page = $page;
     }
 
-    public function render($params = array())
+    public function render($data = array())
     {
-        extract($params);
+        extract($data);
 
         $page = $this->page;
         ob_start();

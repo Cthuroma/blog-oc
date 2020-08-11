@@ -6,8 +6,8 @@ class Autoload
     {
         spl_autoload_register(array(__CLASS__, 'load'));
 
-        $root = $_SERVER['DOCUMENT_ROOT'];
-        $host = $_SERVER['HTTP_HOST'];
+        $root = filter_input(INPUT_SERVER, 'DOCUMENT_ROOT');
+        $host = filter_input(INPUT_SERVER, 'HTTP_HOST');
 
         define('HOST', 'http://' . $host . '/');
         define('ROOT', $root);
@@ -17,7 +17,7 @@ class Autoload
         define('CLASSES', ROOT . 'classes/');
 
         define('ASSETS', HOST . 'assets/');
-        define('VENDOR', HOST . 'vendor/');
+        define('FRONT_VENDOR', HOST . 'assets/vendor/');
 
         define('DBHOST', 'localhost');
         define('DBPORT', '3306');

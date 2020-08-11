@@ -1,0 +1,36 @@
+@startuml
+left to right direction
+
+class User {
+    string mail
+    string name
+    string password
+    Object registrationDate
+    string verifToken
+    Object role
+}
+
+class Post {
+    string postTitle
+    string postSubtitle
+    string postContent
+    string postImage
+    string postImageDescr
+    Object postCreaDate
+    Object postEditDate
+    User postAuthor
+}
+
+class Comment {
+    string commentContent
+    User commentAuthor
+    Post commentPost
+    Boolean commentValidation
+    Object commentDate
+    Object commentValiDate
+}
+
+User "1"--"n" Post :writes
+User "1"--"n" Comment :writes
+Post "1"--"n" Comment :has
+@enduml
