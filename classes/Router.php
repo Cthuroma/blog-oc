@@ -36,8 +36,8 @@ class Router
         if (key_exists($route, $this->routes)) {
             $controller = $this->routes[$route]['controller'];
             $method = $this->routes[$route]['method'];
-            $currentController = new $controller();
-            $currentController->$method($request, $urlArgs);
+            $currentController = new $controller($request, $urlArgs);
+            $currentController->$method();
         } else {
             $view = new View('404');
             $view->render();

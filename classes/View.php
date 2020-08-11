@@ -13,8 +13,6 @@ class View
 
     public function render($data = array())
     {
-        extract($data);
-
         $page = $this->page;
         ob_start();
         include(VIEWS.$page.'.php');

@@ -1,5 +1,5 @@
 <!-- Page Header -->
-<header class="masthead" style="background-image: url(<?= ASSETS.'img/post-bg.jpg' ?>)">
+<header class="masthead" style="background-image: url(<?= addslashes(ASSETS.'img/post-bg.jpg') ?>)">
     <div class="overlay"></div>
     <div class="container">
         <div class="row">

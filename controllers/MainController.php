@@ -1,25 +1,23 @@
 <?php
 
 
-class MainController
+class MainController extends Controller
 {
-
-    public function showHome(Request $req, Array $urlArgs)
+    public function showHome()
     {
         $view = new View('home');
         $view->render();
     }
 
-    public function showPost(Request $req, Array $urlArgs)
+    public function showPost()
     {
         $view = new View('post');
         $view->render();
     }
 
-    public function showPostList(Request $req, Array $urlArgs)
+    public function showPostList()
     {
         $view = new View('post_list');
         $view->render();
     }
-
 }
