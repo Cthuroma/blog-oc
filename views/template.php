@@ -11,15 +11,15 @@
     <title>Clean Blog - Start Bootstrap Theme</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="<?= addslashes(FRONT_VENDOR.'bootstrap/css/bootstrap.min.css'?>" rel="stylesheet">
+    <link href="<?= htmlspecialchars(FRONT_VENDOR.'bootstrap/css/bootstrap.min.css', ENT_COMPAT, 'utf-8'); ?>" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
-    <link href="<?= addslashes(FRONT_VENDOR.'fontawesome-free/css/all.min.css'?>" rel="stylesheet" type="text/css">
+    <link href="<?= htmlspecialchars(FRONT_VENDOR.'fontawesome-free/css/all.min.css', ENT_COMPAT, 'utf-8'); ?>" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
     <!-- Custom styles for this template -->
-    <link href="<?= addslashes(ASSETS.'css/clean-blog.min.css'?>" rel="stylesheet">
+    <link href="<?= htmlspecialchars(ASSETS.'css/clean-blog.min.css', ENT_COMPAT, 'utf-8'); ?>" rel="stylesheet">
 
 </head>
 
@@ -28,7 +28,7 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
-        <a class="navbar-brand" href="/post_list">Start Bootstrap</a>
+        <a class="navbar-brand" href="/post-list">Start Bootstrap</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             Menu
             <i class="fas fa-bars"></i>
@@ -36,17 +36,23 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/post_list">Post List</a>
+                    <a class="nav-link" href="/">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/post">Post</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/post-list">Post List</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/#contact">Contact</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
 
-<?= addslashes($pageContent) ?>
+<?= $pageContent ?>
 
 <hr>
 <footer>
@@ -86,11 +92,11 @@
 </footer>
 
 <!-- Bootstrap core JavaScript -->
-<script src="<?= addslashes(FRONT_VENDOR.'/jquery/jquery.min.js'?>"></script>
-<script src="<?= addslashes(FRONT_VENDOR.'bootstrap/js/bootstrap.bundle.min.js'?>"></script>
+<script src="<?= htmlspecialchars(FRONT_VENDOR.'/jquery/jquery.min.js', ENT_COMPAT, 'utf-8'); ?>"></script>
+<script src="<?= htmlspecialchars(FRONT_VENDOR.'bootstrap/js/bootstrap.bundle.min.js', ENT_COMPAT, 'utf-8'); ?>"></script>
 
 <!-- Custom scripts for this template -->
-<script src="<?= addslashes(ASSETS.'js/clean-blog.min.js'?>"></script>
+<script src="<?= htmlspecialchars(ASSETS.'js/clean-blog.min.js', ENT_COMPAT, 'utf-8'); ?>"></script>
 
 </body>
 

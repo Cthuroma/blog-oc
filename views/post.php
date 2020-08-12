@@ -1,5 +1,5 @@
 <!-- Page Header -->
-<header class="masthead" style="background-image: url(<?= addslashes(ASSETS.'img/post-bg.jpg') ?>)">
+<header class="masthead" style="background-image: url('<?= htmlspecialchars(ASSETS.'img/post-bg.jpg', ENT_COMPAT, 'utf-8'); ?>')">
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
@@ -46,7 +46,7 @@
                 <p>As we got further and further away, it [the Earth] diminished in size. Finally it shrank to the size of a marble, the most beautiful you can imagine. That beautiful, warm, living object looked so fragile, so delicate, that if you touched it with a finger it would crumble and fall apart. Seeing this has to change a man.</p>
 
                 <a href="#">
-                    <img class="img-fluid" src="<?= addslashes(ASSETS.'img/post-sample-image.jpg') ?>" alt="">
+                    <img class="img-fluid" src="<?= htmlspecialchars(ASSETS.'img/post-sample-image.jpg', ENT_COMPAT, 'utf-8'); ?>" alt="">
                 </a>
                 <span class="caption text-muted">To go places and do things that have never been done before – that’s what living is all about.</span>
 

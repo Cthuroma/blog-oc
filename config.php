@@ -19,6 +19,8 @@ class Autoload
         define('ASSETS', HOST . 'assets/');
         define('FRONT_VENDOR', HOST . 'assets/vendor/');
 
+        define('STORAGE', HOST . 'storage/');
+
         define('DBHOST', 'localhost');
         define('DBPORT', '3306');
         define('DBLOGIN', 'root');

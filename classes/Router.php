@@ -18,7 +18,7 @@ class Router
     public function getRoute()
     {
         $elements = explode('/', $this->path);
-        return ($elements[1] !== '') ? ($elements[1]) : ('post-list');
+        return ($elements[1] !== '') ? ($elements[1]) : ('home');
     }
 
     public function getArgs()
