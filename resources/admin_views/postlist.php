@@ -21,6 +21,8 @@
                             <th>Subtitle</th>
                             <th>Posted on</th>
                             <th>Last Updated on</th>
+                            <th>Edit the post</th>
+                            <th>Delete the post</th>
                         </tr>
                         </thead>
                         <tfoot>
@@ -31,10 +33,12 @@
                             <th>Subtitle</th>
                             <th>Posted on</th>
                             <th>Last Updated on</th>
+                            <th>Edit the post</th>
+                            <th>Delete the post</th>
                         </tr>
                         </tfoot>
                         <tbody>
-                        <?php foreach($data['posts'] as $post){ ?>
+                        <?php if (isset($data['posts'])) { foreach($data['posts'] as $post){ ?>
                         <tr>
                             <td><?= $post->getAuthor()->getName() ?></td>
                             <td><?= $post->getTitle() ?></td>
@@ -42,8 +46,10 @@
                             <td><?= $post->getSubtitle() ?></td>
                             <td><?= $post->getCreaDate()->format('F j, Y') ?></td>
                             <td><?= $post->getEditDate()->format('F j, Y') ?></td>
+                            <td><a href="/admin-postedit?id=<?= $post->getId() ?>" class="btn btn-outline-primary">Edit the Post</a></td>
+                            <td><a href="/post-delete?id=<?= $post->getId() ?>" class="btn btn-outline-danger">Delete the Post</a></td>
                         </tr>
-                        <?php } ?>
+                        <?php } }?>
                         </tbody>
                     </table>
                 </div>

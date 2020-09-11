@@ -90,4 +90,12 @@ class CommentManager extends Manager
         $req->execute();
         return true;
     }
+
+    public function deleteComment($id){
+        $query = "DELETE FROM comments WHERE comment_id = :comment_id";
+        $req = $this->db->prepare($query);
+        $req->bindValue(':comment_id', $id, \PDO::PARAM_INT);
+        $req->execute();
+        return true;
+    }
 }

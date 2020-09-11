@@ -94,4 +94,28 @@ class PostManager extends Manager
         return $this->db->lastInsertId('posts');
     }
 
+    public function updatePost(Post $post)
+    {
+        $query = "UPDATE posts SET post_title = :post_title, post_subtitle = :post_subtitle, post_content = :post_content,  post_image = :post_image, post_image_descr = :post_image_descr, post_edit_date = :post_edit_date WHERE post_id = :post_id";
+        $req = $this->db->prepare($query);
+        $req->bindValue(':post_id', $post->getId(), \PDO::PARAM_INT);
+        $req->bindValue(':post_title', $post->getTitle(), \PDO::PARAM_STR);
+        $req->bindValue(':post_subtitle', $post->getSubtitle(), \PDO::PARAM_STR);
+        $req->bindValue(':post_content', $post->getContent(), \PDO::PARAM_STR);
+        $req->bindValue(':post_image', $post->getImage(), \PDO::PARAM_STR);
+        $req->bindValue(':post_image_descr', $post->getImageDescr(), \PDO::PARAM_STR);
+        $req->bindValue(':post_edit_date', $post->getEditDate()->format('Y-m-d H:i:s'), \PDO::PARAM_STR);
+        $req->execute();
+        return $this->db->lastInsertId('posts');
+    }
+
+    public function deletePost(Post $post)
+    {
+        $query = "DELETE FROM posts WHERE post_id = :post_id";
+        $req = $this->db->prepare($query);
+        $req->bindValue(':post_id', $post->getId(), \PDO::PARAM_INT);
+        $req->execute();
+        return true;
+    }
+
 }

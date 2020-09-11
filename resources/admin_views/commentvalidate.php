@@ -20,6 +20,7 @@
                             <th>Post</th>
                             <th>Submitted on</th>
                             <th>Validate</th>
+                            <th>Delete</th>
                         </tr>
                         </thead>
                         <tfoot>
@@ -29,6 +30,7 @@
                             <th>Post</th>
                             <th>Submitted on</th>
                             <th>Validate</th>
+                            <th>Delete</th>
                         </tr>
                         </tfoot>
                         <tbody>
@@ -39,6 +41,7 @@
                                 <td><a href="/post/<?= $comment->getPost() ?>">Post</a></td>
                                 <td><?= $comment->getDate()->format('F j, Y - H:i:s') ?></td>
                                 <td><a href="/validate-comment?id=<?= $comment->getId() ?>" class="btn btn-outline-primary">Validate</a></td>
+                                <td><a href="/delete-comment?id=<?= $comment->getId() ?>" class="btn btn-outline-danger">Delete</a></td>
                             </tr>
                         <?php } ?>
                         </tbody>

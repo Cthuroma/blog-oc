@@ -20,6 +20,9 @@ class Router
         "admin-home"       => ["controller" => 'AdminController', "method" => 'showHome'],
         "admin-newpost"    => ["controller" => 'AdminController', "method" => 'showNewPost'],
         "post-newpost"     => ["controller" => 'AdminController', "method" => 'createPost'],
+        "post-update"      => ["controller" => 'AdminController', "method" => 'updatePost'],
+        "post-delete"      => ["controller" => 'AdminController', "method" => 'deletePost'],
+        "admin-postedit"   => ["controller" => 'AdminController', "method" => 'showEditPost'],
         "admin-posts"      => ["controller" => 'AdminController', "method" => 'showPostList'],
         "admin-roles"      => ["controller" => 'AdminController', "method" => 'showRoles'],
         "admin-validate"   => ["controller" => 'AdminController', "method" => 'commentValidation'],
@@ -27,6 +30,7 @@ class Router
         "validate-comment" => ["controller" => 'AdminController', "method" => 'validateComment'],
         "promoteuser"      => ["controller" => 'AdminController', "method" => 'promoteUser'],
         "downgradeuser"    => ["controller" => 'AdminController', "method" => 'downgradeUser'],
+        "delete-comment"   => ["controller" => 'AdminController', "method" => 'deleteComment'],
     ];
 
     public function __construct($path)

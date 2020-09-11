@@ -71,7 +71,7 @@
                 <form method="post" action="/post-comment/<?= $data['post']->getId() ?>">
                     <div class="form-group">
                         <label for="comment">Write a comment</label>
-                        <textarea class="form-control" id="comment" name="comment" placeholder="What do you think ?"></textarea>
+                        <textarea class="form-control" id="comment" name="comment" placeholder="What do you think ?" required></textarea>
                     </div>
                     <div class="form-group col-6">
                         <input type="submit" class="btn btn-primary" <?php if($data['loggedUser']){ ?> value="Submit comment for validation" <?php }else{ ?> disabled tabindex="-1" value="You need to be logged in to comment" <?php } ?>>

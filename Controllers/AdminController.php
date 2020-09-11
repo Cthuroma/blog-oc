@@ -113,4 +113,55 @@ class AdminController extends Controller
         $view = new View();
         $view->redirect('admin-roles');
     }
+
+    public function showEditPost(){
+        $manager = new PostManager();
+        $view = new View('postedit');
+        $this->pageData['pageTitle'] = 'Blog-OC - Admin Post';
+        $this->pageData['post'] = $manager->find($this->request->input('id'));
+        $view->render($this->pageData);
+    }
+
+    public function updatePost(){
+        $view = new View();
+        $manager = new PostManager();
+        $post = $manager->find($this->request->input('id'));
+        if($_FILES['image']['name'] !== ''){
+            $goodExt = array('.png', '.gif', '.jpg', '.jpeg');
+            $ext = strrchr($_FILES['image']['name'], '.');
+            if(!in_array($ext, $goodExt)) {
+                throw new \Exception('Wrong File Ext', 500);
+            }
+            $filename = uniqid('image').$ext;
+            if(!move_uploaded_file($_FILES['image']['tmp_name'], UPLOADS.$filename)){
+                throw new \Exception('Upload Failed', 500);
+            }
+            $oldImg = $post->getImage();
+            $post->setImage($filename);
+            unlink(ASSETS.'/uploads/'.$oldImg);
+        }
+        $post->setTitle($this->request->input('title'));
+        $post->setSubtitle($this->request->input('subtitle'));
+        $post->setImageDescr($this->request->input('imagedescr'));
+        $post->setContent($this->request->input('content'));
+        $post->setEditDate(new \DateTimeImmutable());
+        $manager->updatePost($post);
+        $view->redirect('post/'.$post->getId());
+    }
+
+    public function deletePost(){
+        $view = new View();
+        $manager = new PostManager();
+        $post = $manager->find($this->request->input('id'));
+        $manager->deletePost($post);
+        $view->redirect('admin-posts');
+    }
+
+    public function deleteComment(){
+        $view = new View();
+        $manager = new CommentManager();
+        $manager->deleteComment($this->request->input('id'));
+        $view->redirect('admin-validate');
+    }
+
 }
