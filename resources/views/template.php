@@ -52,7 +52,7 @@
                 </li>
                 <?php }else{?>
                     <li class="nav-item">
-                        <a class="nav-link" href="/logout">Logout</a>
+                        <a class="nav-link" href="/logout?csrf=<?= $data['csrf'] ?>">Logout</a>
                     </li>
                 <?php } ?>
             </ul>

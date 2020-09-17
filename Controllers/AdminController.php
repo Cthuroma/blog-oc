@@ -50,6 +50,7 @@ class AdminController extends Controller
 
     public function createPost(){
         $view = new View();
+        $this->verifyCSRF();
         $goodExt = array('.png', '.gif', '.jpg', '.jpeg');
         $ext = strrchr($_FILES['image']['name'], '.');
         if(!in_array($ext, $goodExt)) {
@@ -95,6 +96,7 @@ class AdminController extends Controller
 
     public function validateComment(){
         $manager = new CommentManager();
+        $this->verifyCSRF();
         $manager->validateComment($this->request->input('id'));
         $view = new View();
         $view->redirect('admin-validate');
@@ -102,6 +104,7 @@ class AdminController extends Controller
 
     public function promoteUser(){
         $manager = new UserManager();
+        $this->verifyCSRF();
         $manager->promoteUser($this->request->input('id'));
         $view = new View();
         $view->redirect('admin-roles');
@@ -109,6 +112,7 @@ class AdminController extends Controller
 
     public function downgradeUser(){
         $manager = new UserManager();
+        $this->verifyCSRF();
         $manager->downgradeUser($this->request->input('id'));
         $view = new View();
         $view->redirect('admin-roles');
@@ -124,6 +128,7 @@ class AdminController extends Controller
 
     public function updatePost(){
         $view = new View();
+        $this->verifyCSRF();
         $manager = new PostManager();
         $post = $manager->find($this->request->input('id'));
         if($_FILES['image']['name'] !== ''){
@@ -151,6 +156,7 @@ class AdminController extends Controller
 
     public function deletePost(){
         $view = new View();
+        $this->verifyCSRF();
         $manager = new PostManager();
         $post = $manager->find($this->request->input('id'));
         $manager->deletePost($post);
@@ -159,6 +165,7 @@ class AdminController extends Controller
 
     public function deleteComment(){
         $view = new View();
+        $this->verifyCSRF();
         $manager = new CommentManager();
         $manager->deleteComment($this->request->input('id'));
         $view->redirect('admin-validate');

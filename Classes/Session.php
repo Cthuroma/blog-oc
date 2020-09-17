@@ -6,6 +6,13 @@ namespace App\Classes;
 
 class Session
 {
+    public function __construct(){
+        if(!$this->get('csrf')){
+            $this->set('csrf', sha1(uniqid('blog-oc', true)));
+        }
+    }
+
+
     public function get($var)
     {
         if(isset($_SESSION[$var])){

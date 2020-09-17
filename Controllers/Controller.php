@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Classes\Request;
 use App\Classes\Session;
+use App\Classes\Mailer;
 
 abstract class Controller
 {
@@ -17,11 +18,13 @@ abstract class Controller
         $this->request = new Request();
         $this->urlArgs = $urlArgs;
         $this->session = new Session();
-        $this->pageData = ['loggedUser' => $this->session->get('user') ? unserialize($this->session->get('user')) : false];
+        $this->pageData = ['loggedUser' => $this->session->get('user') ? unserialize($this->session->get('user')) : false, 'csrf' => $this->session->get('csrf')];
     }
 
-    public function setFlash($label, $message)
+    public function verifyCSRF()
     {
-
+        if (!$this->request->input('csrf') || $this->request->input('csrf') != $this->session->get('csrf')) {
+            throw new \Exception('CSRF Verification Failed', 500);
+        }
     }
 }

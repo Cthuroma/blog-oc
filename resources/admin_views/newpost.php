@@ -11,7 +11,7 @@
                 Create a new Post
             </div>
             <div class="card-body">
-                <form method="POST" action="post-newpost" enctype="multipart/form-data">
+                <form method="POST" action="post-newpost?csrf=<?= $data['csrf'] ?>" enctype="multipart/form-data">
                     <div class="form-group">
                         <input class="form-control" type="text" name="title" placeholder="Title" required>
                     </div>

@@ -11,7 +11,7 @@
 Edit an existing Post
 </div>
             <div class="card-body">
-                <form method="POST" action="post-update?id=<?= $data['post']->getId() ?>" enctype="multipart/form-data">
+                <form method="POST" action="post-update?id=<?= $data['post']->getId() . '&csrf=' . $data['csrf'] ?>" enctype="multipart/form-data">
                     <div class="form-group">
                         <input class="form-control" type="text" name="title" placeholder="Title" required value="<?= $data['post']->getTitle() ?>">
                     </div>

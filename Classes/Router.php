@@ -8,6 +8,7 @@ class Router
 
     private $routes = [
         "home"             => ["controller" => 'HomeController', "method" => 'showHome'],
+        "post-contact"     => ["controller" => 'HomeController', "method" => 'postContact'],
         "post"             => ["controller" => 'PostController', "method" => 'showPost'],
         "posts"            => ["controller" => 'PostController', "method" => 'showPostList'],
         "post-comment"     => ["controller" => 'PostController', "method" => 'postComment'],

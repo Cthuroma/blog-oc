@@ -68,7 +68,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col col-10 col-sm-12">
-                <form method="post" action="/post-comment/<?= $data['post']->getId() ?>">
+                <form method="post" action="/post-comment/<?= $data['post']->getId().'?csrf='.$data['csrf']?>">
                     <div class="form-group">
                         <label for="comment">Write a comment</label>
                         <textarea class="form-control" id="comment" name="comment" placeholder="What do you think ?" required></textarea>

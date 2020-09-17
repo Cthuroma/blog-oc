@@ -44,8 +44,8 @@
                                 <td><?= $user->getName() ?></td>
                                 <td><?= $user->getMail() ?></td>
                                 <td><?= $user->getRegistrationDate()->format('F j, Y') ?></td>
-                                <td><?php if(!$user->isAdmin() && !$user->isOwner()) { ?><a href="/promoteuser?id=<?= $user->getId() ?>" class="btn btn-primary">Promote to admin</a><?php } ?></td>
-                                <td><?php if($data['loggedUser']->isOwner() && $user->isAdmin()) { ?><a href="/downgradeuser?id=<?= $user->getId() ?>" class="btn btn-primary">Downgrade to User</a><?php } ?></td>
+                                <td><?php if(!$user->isAdmin() && !$user->isOwner()) { ?><a href="/promoteuser?id=<?= $user->getId() . '&csrf='.$data['csrf'] ?>" class="btn btn-primary">Promote to admin</a><?php } ?></td>
+                                <td><?php if($data['loggedUser']->isOwner() && $user->isAdmin()) { ?><a href="/downgradeuser?id=<?= $user->getId() . '&csrf='.$data['csrf'] ?>" class="btn btn-primary">Downgrade to User</a><?php } ?></td>
                             </tr>
                         <?php } ?>
                         </tbody>

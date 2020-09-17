@@ -36,7 +36,7 @@
                 <a href="register" class="signup-image-link">Create an account</a>
             </div>
             <div class="signin-form">
-                <form method="POST" action="post-login" class="register-form" id="login-form">
+                <form method="POST" action="post-login?csrf=<?= $data['csrf'] ?>" class="register-form" id="login-form">
                     <div class="form-group">
                         <label for="mail"><i class="zmdi zmdi-email"></i></label>
                         <input type="text" name="mail" id="mail" placeholder="Your Email"/>

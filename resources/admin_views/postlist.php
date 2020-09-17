@@ -47,7 +47,7 @@
                             <td><?= $post->getCreaDate()->format('F j, Y') ?></td>
                             <td><?= $post->getEditDate()->format('F j, Y') ?></td>
                             <td><a href="/admin-postedit?id=<?= $post->getId() ?>" class="btn btn-outline-primary">Edit the Post</a></td>
-                            <td><a href="/post-delete?id=<?= $post->getId() ?>" class="btn btn-outline-danger">Delete the Post</a></td>
+                            <td><a href="/post-delete?id=<?= $post->getId() . '&csrf='.$data['csrf'] ?>" class="btn btn-outline-danger">Delete the Post</a></td>
                         </tr>
                         <?php } }?>
                         </tbody>

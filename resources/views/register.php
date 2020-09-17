@@ -28,7 +28,7 @@
         <?php } ?>
         <div class="signup-content">
             <div class="signup-form">
-                <form method="POST" action="post-register" class="register-form" id="register-form">
+                <form method="POST" action="post-register?csrf=<?= $data['csrf'] ?>" class="register-form" id="register-form">
                     <div class="form-group">
                         <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                         <input type="text" name="name" id="name" placeholder="Your Name"/>

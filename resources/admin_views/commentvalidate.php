@@ -34,16 +34,18 @@
                         </tr>
                         </tfoot>
                         <tbody>
-                        <?php foreach($data['comments'] as $comment){ ?>
+                        <?php if(isset($data['comments'])) {
+                        foreach($data['comments'] as $comment){ ?>
                             <tr>
                                 <td><?= $comment->getAuthor()->getName() ?></td>
                                 <td><?= $comment->getContent() ?></td>
                                 <td><a href="/post/<?= $comment->getPost() ?>">Post</a></td>
                                 <td><?= $comment->getDate()->format('F j, Y - H:i:s') ?></td>
-                                <td><a href="/validate-comment?id=<?= $comment->getId() ?>" class="btn btn-outline-primary">Validate</a></td>
-                                <td><a href="/delete-comment?id=<?= $comment->getId() ?>" class="btn btn-outline-danger">Delete</a></td>
+                                <td><a href="/validate-comment?id=<?= $comment->getId(). '&csrf='.$data['csrf'] ?>" class="btn btn-outline-primary">Validate</a></td>
+                                <td><a href="/delete-comment?id=<?= $comment->getId() . '&csrf='.$data['csrf'] ?>" class="btn btn-outline-danger">Delete</a></td>
                             </tr>
-                        <?php } ?>
+                        <?php }
+                        } ?>
                         </tbody>
                     </table>
                 </div>

@@ -30,6 +30,7 @@ class AuthController extends Controller
     public function postRegister()
     {
         $view = new View();
+        $this->verifyCSRF();
         if($this->request->input('pass') !== $this->request->input('re_pass')){
             $view->redirect('register?notification=pass');
         }else {
@@ -62,6 +63,7 @@ class AuthController extends Controller
     public function login()
     {
         $view = new View();
+        $this->verifyCSRF();
         $manager = new UserManager;
         $logged = $manager->login($this->request->input('mail'));
         if($logged && password_verify($this->request->input('pass'), $logged->getPassword())){
@@ -76,6 +78,7 @@ class AuthController extends Controller
     public function logout()
     {
         $view = new View();
+        $this->verifyCSRF();
         $this->session->unset('user');
         $view->redirect('home?notification=loggedout');
     }

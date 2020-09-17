@@ -42,6 +42,7 @@ class PostController extends Controller
     public function postComment()
     {
         $view = new View();
+        $this->verifyCSRF();
         $comment = new Comment();
         $comment->setContent($this->request->input('comment'));
         $comment->setDate(new \DateTimeImmutable());

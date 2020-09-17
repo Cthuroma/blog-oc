@@ -68,23 +68,23 @@
         </div>
         <div class="row">
             <div class="col-lg-12">
-                <form name="sentMessage" id="contactForm" method="post" action="#">
+                <form id="contactForm" method="post" action="/post-contact?csrf=<?= $data['csrf'] ?>">
                     <div class="row control-group">
                         <div class="form-group col-12 floating-label-form-group controls">
                             <label>Name</label>
-                            <input type="text" class="form-control" placeholder="Name" id="name">
+                            <input type="text" class="form-control" placeholder="Name" id="name" name="name">
                         </div>
                     </div>
                     <div class="row control-group">
                         <div class="form-group col-12 floating-label-form-group controls">
                             <label>Email Address</label>
-                            <input type="email" class="form-control" placeholder="Email Address" id="email">
+                            <input type="email" class="form-control" placeholder="Email Address" id="email" name="email">
                         </div>
                     </div>
                     <div class="row control-group">
                         <div class="form-group col-12 floating-label-form-group controls">
                             <label>Message</label>
-                            <textarea rows="5" class="form-control" placeholder="Message" id="message"></textarea>
+                            <textarea rows="5" class="form-control" placeholder="Message" id="message" name="message"></textarea>
                         </div>
                     </div>
                     <br>

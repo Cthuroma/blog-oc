@@ -37,4 +37,19 @@ class Mailer
             $mail,
             self::getStringHeaders());
     }
+
+    public static function sendContactMail($name, $email, $message)
+    {
+        ob_start();
+        include MAIL_VIEWS.'contact.php';
+        $mailContent = ob_get_contents();
+        ob_clean();
+        include_once MAIL_VIEWS.'template.php';
+        $mail = ob_get_clean();
+        mail(
+            'owen.jolivet@gmail.com',
+            'Blog-OC Someone used the contact form',
+            $mail,
+            self::getStringHeaders());
+    }
 }
