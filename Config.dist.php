@@ -29,6 +29,6 @@ class Config
         define('DBPORT', '3306');
         define('DBLOGIN', 'root');
         define('DBPASSWORD', '');
-        define('DBNAME', 'mydb');
+        define('DBNAME', 'blog');
     }
 }

@@ -2,32 +2,35 @@
 left to right direction
 
 class User {
+		int id
     string mail
     string name
     string password
-    Object registrationDate
+    DateTime registrationDate
     string verifToken
-    Object role
+    int role
 }
 
 class Post {
+		int postId
     string postTitle
     string postSubtitle
     string postContent
     string postImage
     string postImageDescr
-    Object postCreaDate
-    Object postEditDate
+    DateTime postCreaDate
+    DateTime postEditDate
     User postAuthor
 }
 
 class Comment {
+		int commentId
     string commentContent
     User commentAuthor
     Post commentPost
     Boolean commentValidation
-    Object commentDate
-    Object commentValiDate
+    DateTime commentDate
+    DateTime commentValiDate
 }
 
 User "1"--"n" Post :writes
