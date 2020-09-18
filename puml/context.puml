@@ -1,12 +1,14 @@
 @startuml
 left to right direction
+:Owner:
 :Admins:
 :Users:
 :Visitors:
 rectangle BackOffice
 rectangle FrontOffice
+Owner -down-|> Admins
 Admins -down-|> Users
-Visitors -down-|> Users
+Visitors -- FrontOffice
 Users -- FrontOffice
 Admins -- BackOffice
 @enduml

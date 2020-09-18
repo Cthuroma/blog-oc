@@ -32,7 +32,8 @@
                         </tr>
                         </tfoot>
                         <tbody>
-                        <?php foreach($data['comments'] as $comment){ ?>
+                        <?php if(isset($data['comments'])) {
+                        foreach($data['comments'] as $comment){ ?>
                             <tr>
                                 <td><?= $comment->getAuthor()->getName() ?></td>
                                 <td><?= $comment->getContent() ?></td>
@@ -40,7 +41,8 @@
                                 <td><?= $comment->getDate()->format('F j, Y - H:i:s') ?></td>
                                 <td><?= $comment->getValidation() ?></td>
                             </tr>
-                        <?php } ?>
+                        <?php }
+                        } ?>
                         </tbody>
                     </table>
                 </div>

@@ -1,0 +1,22 @@
+@startuml
+actor Admin
+control App
+database DB
+Admin -> App: Asking for Admin-Post-List page
+App --> DB: Requesting all posts
+DB --> App: Returning all posts
+App -> Admin: Displaying Admin-Post-List page
+alt deleting
+Admin -> App: Requesting deletion of a certain post
+App --> DB: Sending DELETE SQL Request
+App -> Admin: Redirection to Admin-Post-List page
+else editing
+Admin -> App: Requesting edition page of a post
+App --> DB: Requesting all info of the post
+DB --> App: Returning the post
+App -> Admin: Displaying Admin-Post-Edit page
+Admin -> App: Sending form with edited post infos
+App --> DB: Updating infos of the post
+App -> Admin: Redirection to the Post page
+end
+@enduml

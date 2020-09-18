@@ -41,10 +41,6 @@
                         <div class="sb-nav-link-icon"><i class="fas fa-user-lock"></i></div>
                         Manage Roles
                     </a>
-                    <a class="nav-link" href="/admin-users">
-                        <div class="sb-nav-link-icon"><i class="fas fa-users"></i></i></div>
-                        Users List
-                    </a>
                     <div class="sb-sidenav-menu-heading">Posts</div>
                     <a class="nav-link" href="/admin-newpost">
                         <div class="sb-nav-link-icon"><i class="fas fa-feather-alt"></i></div>

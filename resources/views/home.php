@@ -40,13 +40,13 @@
         </div>
         <div class="row">
             <div class="col-lg-4 col-lg-offset-2">
-                <p>Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy.</p>
+                <p>I'm a young passionate dev. I'm currently working for KeyProd and sole developer of the KeyStream device.</p>
             </div>
             <div class="col-lg-4">
-                <p>Whether you're a student looking to showcase your work, a professional looking to attract clients, or a graphic artist looking to share your projects, this template is the perfect starting point!</p>
+                <p>Welcome to this little blog, entirely developed in vanilla PHP, without any Composer library. This application is using an MVC Object architecture.</p>
             </div>
             <div class="col-lg-4">
-                <p>Whether you're a student looking to showcase your work, a professional looking to attract clients, or a graphic artist looking to share your projects, this template is the perfect starting point!</p>
+                <p>This blog will most likely never be hosted anywhere on the net. So you're probably not reading this, but at least it's there.</p>
             </div>
             <div class="col-lg-12 text-center">
                 <a href="<?= htmlspecialchars(STORAGE.'app/jolivet_resume.pdf', ENT_COMPAT, 'utf-8'); ?>" class="btn btn-outline-primary" download="jolivet_resume.pdf">

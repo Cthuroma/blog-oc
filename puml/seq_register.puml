@@ -1,0 +1,13 @@
+@startuml
+actor User
+control App
+database DB
+User -> App: Asking for Register page
+App -> User: Displaying Register page
+User -> App: Sending Form (name, mail, password)
+App --> DB: Generate Validation Token and Inserting User
+App --> User: Sending validation Mail.
+User -> App: Using validation mail link
+App --> DB: Set token to NULL
+App -> User: Redirection to login page
+@enduml

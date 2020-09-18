@@ -1,0 +1,27 @@
+@startuml
+left to right direction
+:Admins:
+:Users:
+:Visitors:
+:Owner:
+Users -down-|> Visitors
+Admins -down-|> Users
+Owner -down-|> Admins
+package FrontOffice {
+		Visitors -- (Register)
+		Visitors -- (Contact the main admin via a form)
+    Visitors -- (Access Social Medias of Owner)
+    Visitors -- (See Posts List)
+    Visitors -- (Access Resume of Owner)
+    Visitors -- (See a full post)
+    Users -- (Comment on posts)
+    Users -- (Login and Logout)
+}
+package BackOffice {
+    Admins -- (Manage users rights)
+    Admins -- (Check and validate or Delete comments)
+    Admins -- (Create and edit posts)
+    Admins -- (Delete posts)
+    Owner -- (Downgrade Admins)
+}
+@enduml

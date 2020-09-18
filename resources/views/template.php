@@ -95,7 +95,7 @@
                 </ul>
                 <p class="copyright text-muted">Copyright &copy; Blog-OC 2020</p>
                 <?php if($data['loggedUser'] && ($data['loggedUser']->isAdmin() || $data['loggedUser']->isOwner())){ ?>
-                    <p class="copyright"><a href="/admin-home">Accès Admin</a></p>
+                    <p class="copyright"><a href="/admin-home">Admin Access</a></p>
                 <?php }?>
             </div>
         </div>
