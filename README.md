@@ -1,5 +1,6 @@
 # PHP Blog - 5th Project
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/93738cbd1dfa4c68b7555054b4a7a412)](https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Cthuroma/blog-oc&amp;utm_campaign=Badge_Grade)
+http://app.codacy.com/manual/Cthuroma/blog-oc/dashboard?bid=19583540&token=vK7U47ohlMXUGZH
 ## Prerequisites
 - PHP ver. 7.2.19^
 - MySQL Database
