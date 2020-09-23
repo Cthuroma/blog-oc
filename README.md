@@ -2,17 +2,17 @@
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/93738cbd1dfa4c68b7555054b4a7a412)](https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Cthuroma/blog-oc&amp;utm_campaign=Badge_Grade)
 http://app.codacy.com/manual/Cthuroma/blog-oc/dashboard?bid=19583540&token=vK7U47ohlMXUGZH
 ## Prerequisites
-- PHP ver. 7.2.19^
-- MySQL Database
-- Apache Server
-- Any Mail-Catcher
+-  PHP ver. 7.2.19^
+-  MySQL Database
+-  Apache Server
+-  Any Mail-Catcher
 ## Installation
-- Clone the repo :
+-  Clone the repo :
 ```shell script
 git clone https://github.com/Cthuroma/blog-oc.git
 ```
-- Execute the ./blog-db.sql script on your local DB.
-- Make sure you have a virtual host running root at ./public/ for the router to work correctly. For example :
+-  Execute the ./blog-db.sql script on your local DB.
+-  Make sure you have a virtual host running root at ./public/ for the router to work correctly. For example :
 ```apacheconfig
 <VirtualHost *:80>
     DocumentRoot "C:/laragon/www/blog-oc/public/"
@@ -24,6 +24,6 @@ git clone https://github.com/Cthuroma/blog-oc.git
     </Directory>
 </VirtualHost>
 ```
-- Duplicate the ./Config.dist.php file into a ./Config.php file and put your own DB credentials.
-- The default SQL script includes an admin account : Login :
-admin@admin.blog / Password : wKXCoF5$
+-  Duplicate the ./Config.dist.php file into a ./Config.php file and put your own DB credentials.
+-  The default SQL script includes an admin account : Login :
+  admin@admin.blog / Password : wKXCoF5$
